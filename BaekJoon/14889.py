@@ -4,17 +4,27 @@
 # 2. 조합구하기 그 조합 마다 최솟값 갱신해서 출력
 
 import sys
+from itertools import combinations
+
 input = sys.stdin.readline
 N = int(input())
-board = []
+board = [list(map(int, input().split())) for _ in range(N)]
 
-for i in range(N):
-    board[i].append(list(map(int, input().split())))
+ans = 10**9
+players = list(range(N))
 
-min = 0
-for i in range(N):
-    for j in range(N):
-        difference = board[i][j] + board[j][i]
+for start in combinations(players[1:], N // 2 - 1):
+    start = (0,) + start
+    link = [p for p in players if p not in start]
 
-min = min(min, difference)
-print(min)
+    start_score = 0
+    link_score = 0
+    for i, j in combinations(start, 2):
+        start_score += board[i][j] + board[j][i]
+    for i, j in combinations(link, 2):
+        link_score += board[i][j] + board[j][i]
+
+    ans = min(ans, abs(start_score - link_score))
+print(ans)
+
+
