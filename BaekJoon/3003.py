@@ -1,5 +1,5 @@
 import sys
-input = sys.stdin.readline()
+input = sys.stdin.readline
 
 #필요하거나 뺴야하는 수를 각각 출력하기
 #배열 입력
