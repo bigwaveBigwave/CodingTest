@@ -12,7 +12,7 @@ arr = []
 for _ in range(N):
     arr.append(input().strip())
 arr = list(set(arr))
-arr.sort()
+arr.sort()#후순위 정렬 먼저
 arr.sort(key=len)
 #arr.sort()
 print(*arr)
