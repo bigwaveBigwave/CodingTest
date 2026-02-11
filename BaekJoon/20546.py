@@ -15,17 +15,21 @@ for _ in range(14):
     juga.append(int(input))
 
 for i in juga:
-    if ss>i:
+    if jj>i:
         t = 0
-        while(ss>=i*t):
+        while(jj>=i*t):
             t+=1
-        ss = ss - i*t
-        s[i] = i*t+juga[i]
+        jj = jj - i*t
+        j[i] = i*t+juga[i]
 
 for i in juga:
-    if jj > i:
-        t = 0
-        while (ss >= i * t):
-            t += 1
-        s[i] = n - i * t + juga[i]
+    if juga[i] < juga
 
+ans_j = jj + j[13]
+ans_s = ss + s[13]
+if ans_j < ans_s:
+    print("TIMING")
+elif ans_s < ans_j:
+    print("BMP")
+else:
+    print("SAMESAME")
