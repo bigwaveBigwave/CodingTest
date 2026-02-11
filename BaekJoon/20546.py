@@ -5,31 +5,39 @@
 # 주가 배열 입력받기
 import sys
 input = sys.stdin.readline
-n = int(input())
-juga = []
-s = []
-j = []
-ss = n
-jj = n
-for _ in range(14):
-    juga.append(int(input))
+money = int(input())
+p = list(map(int, input().split()))
 
-for i in juga:
-    if jj>i:
-        t = 0
-        while(jj>=i*t):
-            t+=1
-        jj = jj - i*t
-        j[i] = i*t+juga[i]
+#준현
+b_cash = money
+b_stock = 0
+for price in p:
+     if b_cash >= price:
+         cnt = b_cash // price
+         b_stock += cnt
+         b_cash -= cnt*price
+b_asset = b_cash + b_stock * p[-1]
 
-for i in juga:
-    if juga[i] < juga
+#성민
+t_cash = money
+t_stock = 0
 
-ans_j = jj + j[13]
-ans_s = ss + s[13]
-if ans_j < ans_s:
+for i in range(3, 14):
+    if p[i-3] < p[i-2] and p[i-2] < p[i-1] and p[i-1] < p[i]:
+        if t_stock > 0:
+            t_cash += t_stock*p[i]
+            t_stock = 0
+
+    elif p[i-3] > p[i-2] and p[i-2] > p[i-1] and p[i-1] > p[i]:
+        if t_cash >= p[i]:
+            cnt = t_cash // p[i]
+            t_stock += cnt
+            t_cash -= cnt*p[i]
+t_asset = t_cash + t_stock*p[-1]
+
+if b_asset > t_asset:
+    print("BNP")
+elif b_asset < t_asset:
     print("TIMING")
-elif ans_s < ans_j:
-    print("BMP")
 else:
     print("SAMESAME")
