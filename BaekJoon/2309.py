@@ -6,6 +6,10 @@
 import sys
 from itertools import combinations
 input = sys.stdin.readline
-heights = list(map(int, input().split))
-if combinations(heights, 7) < 100:
-    print(combinations)
+heights = [int(input().strip()) for _ in range(9)]
+
+for cand in combinations(heights, 7):
+    if sum(cand) == 100:
+        for h in sorted(cand):
+            print(h)
+        break
