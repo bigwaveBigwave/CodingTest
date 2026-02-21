@@ -10,6 +10,7 @@ cur = s
 for _ in range(k):
     prev = [0] * n
     for i in range(n):
+
         prev[d[i]] = cur[i]
     cur = prev
 
