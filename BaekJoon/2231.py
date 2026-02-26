@@ -6,6 +6,7 @@
 import sys
 input = sys.stdin.readline
 
+
 n = int(input().split())
 start = max(1, n - 9 * len(str(n)))
 
